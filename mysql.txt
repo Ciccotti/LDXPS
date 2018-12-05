@@ -1,0 +1,19 @@
+CREATE DATABASE ldxps;
+
+USE DATABASE ldxps;
+
+CREATE TABLE VENDEDORES(
+    CDVEND varchar(36) PRIMARY KEY,
+    DSNOME varchar(50) NOT null,
+    CDTAB integer NOT null,
+    DTNASC date
+);
+
+CREATE TABLE CLIENTES(
+    CDCL varchar(36) PRIMARY KEY,
+    DSNOME varchar(50) NOT null,
+    IDTIPO char(2) NOT null,
+    CDVEND varchar(36),    
+    FOREIGN KEY (CDVEND) REFERENCES VENDEDORES(CDVEND),
+    DSLIM DECIMAL(15,2)
+);
